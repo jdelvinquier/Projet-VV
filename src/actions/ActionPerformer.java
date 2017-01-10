@@ -2,12 +2,16 @@ package actions;
 
 import java.awt.AWTException;
 import java.awt.Dimension;
+import java.awt.Rectangle;
 import java.awt.Robot;
 import java.awt.Toolkit;
+import java.io.File;
 import java.io.IOException;
 import java.util.Random;
 import java.awt.event.InputEvent;
+import java.awt.image.BufferedImage;
 
+import javax.imageio.ImageIO;
 import launcher.Launcher;
 import buttons.*;
 
@@ -71,9 +75,16 @@ public class ActionPerformer extends Robot{
 		this.mouseRelease(InputEvent.BUTTON2_MASK);
 	}
 	
+	public void takeScreen(String filename) throws IOException{
+		 BufferedImage screencapture = this.createScreenCapture(new Rectangle(Toolkit.getDefaultToolkit().getScreenSize()));
+	     File file = new File("states/"+filename+".jpg");
+	     ImageIO.write(screencapture, "png", file);
+	}
+	
 	
 	public static void main(String[] args) throws IOException, AWTException, InterruptedException{
 		Launcher l = new Launcher();
 		ActionPerformer p = new ActionPerformer();
+		p.takeScreen("test");
 	}
 }
