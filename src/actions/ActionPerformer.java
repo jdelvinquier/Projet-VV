@@ -9,7 +9,7 @@ import java.util.Random;
 import java.awt.event.InputEvent;
 
 import launcher.Launcher;
-import buttons.BUndo;
+import buttons.*;
 
 public class ActionPerformer extends Robot{
 	private double screenWidth;
@@ -41,19 +41,24 @@ public class ActionPerformer extends Robot{
 			realY = relYtoClick[i]*screenHeight;
 			this.mouseMove((int)realX,(int)realY);
 			this.mousePress(InputEvent.BUTTON1_MASK);
-			Thread.sleep(20);
+			this.mouseRelease(InputEvent.BUTTON1_MASK);
+			Thread.sleep(2000);
 		}
 		if(b.needCanvasDND()){
 			int X = rand.nextInt(canvasRight-canvasLeft)+canvasLeft;
 			int Y = rand.nextInt(canvasDown-canvasUpper)+canvasUpper; 
 			this.mouseMove(X,Y);
+			Thread.sleep(1000);
 			this.mousePress(InputEvent.BUTTON1_MASK);
 			X = rand.nextInt(canvasRight-canvasLeft)+canvasLeft;
 			Y = rand.nextInt(canvasDown-canvasUpper)+canvasUpper;
 			this.mouseMove(X,Y);
+			Thread.sleep(1000);
 			this.mouseRelease(InputEvent.BUTTON1_MASK);
 		}else if(b.needCanvasClick()>0){
-			clickCntr++;
+			while(clickCntr<b.needCanvasClick()){
+				clickCntr++;	
+			}
 		}
 	}
 	
@@ -61,6 +66,6 @@ public class ActionPerformer extends Robot{
 	public static void main(String[] args) throws IOException, AWTException, InterruptedException{
 		Launcher l = new Launcher();
 		ActionPerformer p = new ActionPerformer();
-		p.pressButton(new BUndo());
+		p.pressButton(new BRectangle());
 	}
 }
