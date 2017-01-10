@@ -37,35 +37,45 @@ public class ActionPerformer extends Robot{
 		double [] relYtoClick = b.getY();
 		double realX, realY;
 		for(int i=0;i<relXtoClick.length;i++){
+			Thread.sleep(1000);
 			realX = relXtoClick[i]*screenWidth;
 			realY = relYtoClick[i]*screenHeight;
 			this.mouseMove((int)realX,(int)realY);
 			this.mousePress(InputEvent.BUTTON1_MASK);
 			this.mouseRelease(InputEvent.BUTTON1_MASK);
-			Thread.sleep(2000);
 		}
 		if(b.needCanvasDND()){
 			int X = rand.nextInt(canvasRight-canvasLeft)+canvasLeft;
 			int Y = rand.nextInt(canvasDown-canvasUpper)+canvasUpper; 
 			this.mouseMove(X,Y);
-			Thread.sleep(1000);
+			Thread.sleep(100);
 			this.mousePress(InputEvent.BUTTON1_MASK);
 			X = rand.nextInt(canvasRight-canvasLeft)+canvasLeft;
 			Y = rand.nextInt(canvasDown-canvasUpper)+canvasUpper;
 			this.mouseMove(X,Y);
-			Thread.sleep(1000);
+			Thread.sleep(100);
 			this.mouseRelease(InputEvent.BUTTON1_MASK);
 		}else if(b.needCanvasClick()>0){
 			while(clickCntr<b.needCanvasClick()){
-				clickCntr++;	
+				int X = rand.nextInt(canvasRight-canvasLeft)+canvasLeft;
+				int Y = rand.nextInt(canvasDown-canvasUpper)+canvasUpper;
+				this.mouseMove(X,Y);
+				this.mousePress(InputEvent.BUTTON1_MASK);
+				this.mouseRelease(InputEvent.BUTTON1_MASK);
+				clickCntr++;
+				Thread.sleep(50);
 			}
 		}
+		this.mousePress(InputEvent.BUTTON2_MASK);
+		this.mouseRelease(InputEvent.BUTTON2_MASK);
 	}
 	
 	
 	public static void main(String[] args) throws IOException, AWTException, InterruptedException{
 		Launcher l = new Launcher();
 		ActionPerformer p = new ActionPerformer();
-		p.pressButton(new BRectangle());
+		p.pressButton(new BGrilleStandard());
+		p.pressButton(new BGrillePerso());
+		p.pressButton(new BGrilleNone());
 	}
 }
