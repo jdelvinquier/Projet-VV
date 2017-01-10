@@ -14,7 +14,7 @@ public class Launcher {
 				try{
 					Desktop.getDesktop().open(new File(projectPath+"/lib/LaTeXDraw.jar"));
 					Thread.sleep(2000);
-				}catch (IOException | InterruptedException e) {
+				}catch (IOException | InterruptedException e){
 	               e.printStackTrace();
 	            }
 			}
