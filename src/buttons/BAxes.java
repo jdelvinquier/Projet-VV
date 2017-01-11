@@ -2,17 +2,13 @@ package buttons;
 
 import java.util.Random;
 
-import actions.AbstractButton;
-
 public class BAxes extends AbstractButton{
 	private int clicks;
 	
 	public BAxes(){
 		this.ref = "Axes";
-		this.relX = new double[1];
-		this.relY = new double[1];
-		this.relX[0] = 0.375;
-		this.relY[0] = 0.055;
+		this.relX = new int[1];
+		this.relY = new int[1];
 		Random r = new Random();
 		this.clicks = r.nextInt(4)+1;
 	}

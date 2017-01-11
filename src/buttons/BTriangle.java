@@ -1,15 +1,11 @@
 package buttons;
 
-import actions.AbstractButton;
-
 public class BTriangle extends AbstractButton{
 
 	public BTriangle(){
 		this.ref = "Triangle";
-		this.relX = new double[1];
-		this.relY = new double[1];
-		this.relX[0] = 0.3140;
-		this.relY[0] = 0.0537;
+		this.relX = new int[1];
+		this.relY = new int[1];
 	}
 	
 	@Override

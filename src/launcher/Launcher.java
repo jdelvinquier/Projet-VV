@@ -4,7 +4,6 @@ import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
 
-
 public class Launcher {
 	private static String projectPath = "F:/Cours/Projet-VV";
 	

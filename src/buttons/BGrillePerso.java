@@ -1,20 +1,16 @@
 package buttons;
 
-import actions.AbstractButton;
-
 public class BGrillePerso extends AbstractButton {
 	public BGrillePerso(){
 		this.ref = "GrillePerso";
-		this.relX = new double[4];
-		this.relY = new double[4];
-		this.relX[0] = 0.122395;
-		this.relY[0] = 0.055;
-		this.relX[1] = 0.1458;
-		this.relY[1] = 0.0851;
-		this.relX[2] = 0.1458;
-		this.relY[2] = 0.127777;
-		this.relX[3] = 0.122395;
-		this.relY[3] = 0.055;
+		this.relX = new int[4];
+		this.relY = new int[4];
+		relX[1] = 323;
+		relY[1] = 112;
+		relX[2] = 323;
+		relY[2] = 152;
+		relX[3] = 268;
+		relY[3] = 70;
 	}
 	
 	

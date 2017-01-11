@@ -1,15 +1,11 @@
 package buttons;
 
-import actions.AbstractButton;
-
 public class BRectangle extends AbstractButton{
 	
 	public BRectangle(){
 		this.ref = "Rectangle";
-		this.relX = new double[1];
-		this.relY = new double[1];
-		this.relX[0] = 0.2234;
-		this.relY[0] = 0.0537;
+		this.relX = new int[1];
+		this.relY = new int[1];
 	}
 	
 	@Override

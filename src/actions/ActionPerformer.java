@@ -7,12 +7,14 @@ import java.awt.Robot;
 import java.awt.Toolkit;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Random;
 import java.awt.event.InputEvent;
 import java.awt.image.BufferedImage;
 
 import javax.imageio.ImageIO;
 import launcher.Launcher;
+import sequences.Sequence;
 import buttons.*;
 
 public class ActionPerformer extends Robot{
@@ -28,23 +30,20 @@ public class ActionPerformer extends Robot{
 		Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
 		this.screenWidth = d.getWidth();
 		this.screenHeight = d.getHeight();
-		this.canvasLeft = (int)(this.screenWidth*0.01);
-		this.canvasRight = (int)(this.screenWidth*0.95);
-		this.canvasUpper = (int)(this.screenHeight*0.11);
-		this.canvasDown = (int)(this.screenHeight*0.9);
+		this.canvasLeft = (int)(this.screenWidth*0.2);
+		this.canvasRight = (int)(this.screenWidth*0.8);
+		this.canvasUpper = (int)(this.screenHeight*0.2);
+		this.canvasDown = (int)(this.screenHeight*0.8);
 		this.rand = new Random();
 	}
 	
 	public void pressButton(AbstractButton b) throws InterruptedException{
 		int clickCntr = 0;
-		double [] relXtoClick = b.getX();
-		double [] relYtoClick = b.getY();
-		double realX, realY;
-		for(int i=0;i<relXtoClick.length;i++){
+		int [] XtoClick = b.getX();
+		int [] YtoClick = b.getY();
+		for(int i=0;i<XtoClick.length;i++){
 			Thread.sleep(250);
-			realX = relXtoClick[i]*screenWidth;
-			realY = relYtoClick[i]*screenHeight;
-			this.mouseMove((int)realX,(int)realY);
+			this.mouseMove(XtoClick[i],YtoClick[i]);
 			this.mousePress(InputEvent.BUTTON1_MASK);
 			this.mouseRelease(InputEvent.BUTTON1_MASK);
 		}
@@ -81,10 +80,10 @@ public class ActionPerformer extends Robot{
 	     ImageIO.write(screencapture, "png", file);
 	}
 	
-	
-	public static void main(String[] args) throws IOException, AWTException, InterruptedException{
-		Launcher l = new Launcher();
-		ActionPerformer p = new ActionPerformer();
-		p.takeScreen("test");
+	public void executeSequence(Sequence s) throws InterruptedException{
+		ArrayList<AbstractButton> execSeq = s.getList();
+		for(int i=0;i<execSeq.size();i++){
+			pressButton(execSeq.get(i));
+		}
 	}
 }
