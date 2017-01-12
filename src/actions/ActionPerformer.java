@@ -76,7 +76,7 @@ public class ActionPerformer extends Robot{
 	
 	public void takeScreen(String filename) throws IOException{
 		 this.mouseMove(0, 0);
-		 BufferedImage screencapture = this.createScreenCapture(new Rectangle(Toolkit.getDefaultToolkit().getScreenSize()));
+		 BufferedImage screencapture = this.createScreenCapture(new Rectangle(this.canvasLeft,this.canvasUpper,(int)(screenWidth*0.6),(int)(screenHeight*0.6)));
 	     File file = new File("states/"+filename+".jpg");
 	     ImageIO.write(screencapture, "png", file);
 	}
