@@ -1,7 +1,7 @@
 # Projet-VV
 Undo/Redo functionnality test
 
-Pour le programme de test fonctionne parfaitement :
+Pour que le programme de test fonctionne parfaitement :
   - Il faut être en résolution 1920*1080 sur Windows 
   (Le UIanalyzer n'arrive pas à capturer les boutons "Grille perso", "Grille standard" et "Aucune grille", ces positions sont codées "en dur", le reste des boutons est bien analysé)
   
