@@ -9,8 +9,7 @@ public class BPoint extends AbstractButton{
 		this.ref = "Point";
 		this.relX = new int[1];
 		this.relY = new int[1];
-		Random r = new Random();
-		this.clicks = r.nextInt(4)+1;
+		this.clicks = 1;
 	}
 	
 	@Override

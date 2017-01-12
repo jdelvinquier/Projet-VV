@@ -75,15 +75,38 @@ public class ActionPerformer extends Robot{
 	}
 	
 	public void takeScreen(String filename) throws IOException{
+		 this.mouseMove(0, 0);
 		 BufferedImage screencapture = this.createScreenCapture(new Rectangle(Toolkit.getDefaultToolkit().getScreenSize()));
 	     File file = new File("states/"+filename+".jpg");
 	     ImageIO.write(screencapture, "png", file);
 	}
 	
-	public void executeSequence(Sequence s) throws InterruptedException{
+	public void executeSequence(Sequence s) throws InterruptedException, IOException{
 		ArrayList<AbstractButton> execSeq = s.getList();
-		for(int i=0;i<execSeq.size();i++){
+		int size = execSeq.size();
+		int nUndo = s.getUndo();
+		int nRedo = s.getRedo();
+		int execUndo = 0;
+		int execRedo = 0;
+		int beforeRedo=0;
+		int idxEndActions = size-nUndo-nRedo;
+		for(int i=0;i<size;i++){
+			if(idxEndActions-i <= nUndo && idxEndActions-i>0){
+				takeScreen(s.getName()+"_Undo_"+(idxEndActions-i)+"_Expected");
+			}
 			pressButton(execSeq.get(i));
+			if(idxEndActions-nUndo <= i && beforeRedo<nRedo){
+				beforeRedo++;
+				takeScreen(s.getName()+"_Redo_"+beforeRedo+"_Expected");
+			}
+			if(execSeq.get(i).getName()=="Undo"){
+				execUndo++;
+				takeScreen(s.getName()+"_Undo_"+execUndo+"_Result");
+			}
+			if(execSeq.get(i).getName()=="Redo"){
+				execRedo++;
+				takeScreen(s.getName()+"_Redo_"+execRedo+"_Result");
+			}
 		}
 	}
 }

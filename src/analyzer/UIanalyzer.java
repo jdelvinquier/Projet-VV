@@ -2,6 +2,7 @@ package analyzer;
 
 import java.awt.Component;
 import java.awt.Point;
+import java.awt.event.WindowEvent;
 
 import javax.swing.SwingUtilities;
 
@@ -124,5 +125,9 @@ public class UIanalyzer {
 		ActionList.actions.get(13).setX(p.x+2);
 		ActionList.actions.get(13).setY(p.y+2);
 		mainFrame.setVisible(false);
+	}
+	
+	public void closeFrame(){
+		mainFrame.dispatchEvent(new WindowEvent(mainFrame, WindowEvent.WINDOW_CLOSING));
 	}
 }

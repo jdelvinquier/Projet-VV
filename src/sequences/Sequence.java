@@ -10,23 +10,24 @@ public class Sequence {
 	private Random rand;
 	private ArrayList<AbstractButton> actionSeq; 
 	private int seqLength, nUndo, nRedo;
-	private int [] undoPlace;
-	private int [] redoPlace;
+
+	private String name;
 	
-	public Sequence(int p_seqLength){
+	public Sequence(String p_name, int p_seqLength){
 		this.rand = new Random();
+		this.name = p_name;
 		this.actionSeq = new ArrayList<AbstractButton>();
-		this.undoPlace = new int[p_seqLength];
-		this.redoPlace = new int[p_seqLength];
 		this.seqLength = p_seqLength;
 		this.nRedo = 0;
 		this.nUndo = 0;
 	}
 	
-	public void buildNew(){
+	public void buildNew(int p_nUndo, int p_nRedo){
 		actionSeq = new ArrayList<AbstractButton>();
-		nUndo = 1;
-		nRedo = 1;
+		if(p_nRedo > p_nUndo)
+			p_nRedo = p_nUndo;
+		nUndo = p_nUndo;
+		nRedo = p_nRedo;
 		int idx;
 		for(int i=0;i<this.seqLength-nUndo-nRedo;i++){
 			idx = rand.nextInt(ActionList.actions.size());
@@ -35,12 +36,14 @@ public class Sequence {
 			}
 			actionSeq.add(ActionList.actions.get(idx));
 		}
-		actionSeq.add(ActionList.actions.get(18));
-		actionSeq.add(ActionList.actions.get(16));
+		for(int i=0;i<p_nUndo;i++)
+			actionSeq.add(ActionList.actions.get(18));
+		for(int i=0;i<p_nRedo;i++)
+			actionSeq.add(ActionList.actions.get(16));
 	}
 	
 	public void printSeq(){
-		String fin = "";
+		String fin = name+" : ";
 		for(int i=0;i<this.seqLength;i++){
 			fin += actionSeq.get(i).getName();
 			if(i!=seqLength-1)
@@ -53,11 +56,15 @@ public class Sequence {
 		return actionSeq;
 	}
 	
-	public int[] getUndo(){
-		return undoPlace;
+	public int getUndo(){
+		return nUndo;
 	}
 	
-	public int[] getRedo(){
-		return redoPlace;
+	public int getRedo(){
+		return nRedo;
+	}
+	
+	public String getName(){
+		return name;
 	}
 }
