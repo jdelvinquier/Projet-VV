@@ -49,9 +49,18 @@ Cependant, malgrè de nombreux essais nous n'avons pas réussi à mettre en plac
 ##Objectifs validés du projet :
 
 Nous avons remplit une majorité des objectifs du projet, cependant certains aspects peuvent être améliorés :
+
 - Par exemple, notre UIanalyzer ne parcours pas les WidgetMiniToolBar, ce qui nuit à la portabilité de notre programme test ou bien à la complétude de nos tests.
 - De la même manière, la génération des séquences de test est automatique mais elle pourrait comprendre plus d'options, actuellement on ne peut que préciser la longueur du test et le nombre de Undo-Redo successifs que l'on souhaite exécuter, à partir de ce générateur on peut facilement mettre en place de longues séquences totalement aléatoires mais toujours cohérentes en "appendant" plusieurs séquences successives généré par la classe actuelle.
 - Et comme précisé ci-dessus, nous souhaitions comparer les états via la comparaison des screenshots, mais nous nous sommes rendus compte de la difficulté de cette étape après coup
+
+Par contre ces aspects du projets sont remplis :
+
+- Exploration de la JFrame et récupération de la position des composants voulus
+- Simulation des actions identique au comportement d'un utilisateur réel
+- Génération de tests case cohérents avec les fonctionnalités testées
+- Capture des états au bon moment et ces états sont écrits dans des fichier
+- Comparaison "manuelle" des états attendus & résultants  très aisée (car visuelle)
 
 ##Ce que l'on a retenu du projet :
 
