@@ -20,11 +20,11 @@ La première étape a été de découvrir manuellement tous les boutons qui inte
 ##Architecture du projet :
 
 On peut compter 5 classes principales JAVA pour ce projet:
-	- ActionPerformer
-	- AbstractButton
-	- ActionList
-	- Sequence
-	- UIanalyzer
+- ActionPerformer
+- AbstractButton
+- ActionList
+- Sequence
+- UIanalyzer
 	
 La classe ActionPerformer est celle qui va effectuée les actions sur la GUI, elle étend donc la classe java.awt.Robot. C'est donc cette classe qui se charge d'exécuter les séquences tests ainsi que de capturer l'état de l'application via des captures d'écran. Les captures sont prises dans le dossier "/states/" du projet, elles permettent la comparaison entre le résultat attendu (tag "_Expected") et celui véritable qui à lieu après un Undo ou un Redo (tag "_Result").
 	
@@ -39,19 +39,19 @@ L'UIanalyzer est la classe transmettant les informations sur les coordonnées de
 ##Phases de test automatisées :
 
 Nous avons réussi à automatiser :
-	- L'analyse du GUI : capture de la position des boutons que l'on souhaite sur la GUI
-	- La génération de cas test cohérents pour les fonctionnalités que l'on souhaite tester (dans ce cas, Undo-Redo)
-	- L'exécution des séquences de test sur le GUI
-	- La capture des états de l'application aux bons moments
+- L'analyse du GUI : capture de la position des boutons que l'on souhaite sur la GUI
+- La génération de cas test cohérents pour les fonctionnalités que l'on souhaite tester (dans ce cas, Undo-Redo)
+- L'exécution des séquences de test sur le GUI
+- La capture des états de l'application aux bons moments
 
 Cependant, malgrè de nombreux essais nous n'avons pas réussi à mettre en place l'automatisation de la comparaison entre l'état attendu et l'état résultant. En effet, bien qu'il existe des librairies de comparaison d'image, il y a quasiment systématiquement un offset de quelques pixels entre la capture résultante et celle attendue ce qui rend la comparaison pixel à pixel impossible.
 
 ##Objectifs validés du projet :
 
 Nous avons remplit une majorité des objectifs du projet, cependant certains aspects peuvent être améliorés :
-	- Par exemple, notre UIanalyzer ne parcours pas les WidgetMiniToolBar, ce qui nuit à la portabilité de notre programme test ou bien à la complétude de nos tests.
-	- De la même manière, la génération des séquences de test est automatique mais elle pourrait comprendre plus d'options, actuellement on ne peut que préciser la longueur du test et le nombre de Undo-Redo successifs que l'on souhaite exécuter, à partir de ce générateur on peut facilement mettre en place de longues séquences totalement aléatoires mais toujours cohérentes en "appendant" plusieurs séquences successives généré par la classe actuelle.
-	- Et comme précisé ci-dessus, nous souhaitions comparer les états via la comparaison des screenshots, mais nous nous sommes rendus compte de la difficulté de cette étape après coup
+- Par exemple, notre UIanalyzer ne parcours pas les WidgetMiniToolBar, ce qui nuit à la portabilité de notre programme test ou bien à la complétude de nos tests.
+- De la même manière, la génération des séquences de test est automatique mais elle pourrait comprendre plus d'options, actuellement on ne peut que préciser la longueur du test et le nombre de Undo-Redo successifs que l'on souhaite exécuter, à partir de ce générateur on peut facilement mettre en place de longues séquences totalement aléatoires mais toujours cohérentes en "appendant" plusieurs séquences successives généré par la classe actuelle.
+- Et comme précisé ci-dessus, nous souhaitions comparer les états via la comparaison des screenshots, mais nous nous sommes rendus compte de la difficulté de cette étape après coup
 
 ##Ce que l'on a retenu du projet :
 
