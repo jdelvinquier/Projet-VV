@@ -9,10 +9,10 @@ Test des fonctionnalités Undo-Redo
 ##Objectifs initiaux du projet :
 
 L'objectif principal de ce projet était d'automatiser au maximum le test d'une Interface Graphique Utilisateur pour une application codée en Java Swing. Plus précisément, la fonctionnalités Undo-Redo d'une de ces applications. C'est-à-dire qu'il fallait valider le fait que :
-	- Le Undo amène l'application dans l'état où elle se trouvait précédemment
-	- Le Redo ramène l'application dans l'état où elle se trouvait avant le Undo
+- Le Undo amène l'application dans l'état où elle se trouvait précédemment
+- Le Redo ramène l'application dans l'état où elle se trouvait avant le Undo
 
-La première étape a été de découvrir manuellement tous les boutons qui interagissent avec les fonctionnalités Undo-Redo de LaTeXDraw. En effet, la plupart des contrôles n'ont aucun effet sur le Undo-Redo, il a donc fallu dans un premier temps lister cet ensemble.
+La première étape a été de découvrir manuellement tous les boutons qui interagissent avec les fonctionnalités Undo-Redo de LaTeXDraw mais également de quelle manière. En effet, la plupart des contrôles n'ont aucun effet sur le Undo-Redo, il a donc fallu dans un premier temps lister cet ensemble de boutons.
 
 ##Architecture du projet :
 
