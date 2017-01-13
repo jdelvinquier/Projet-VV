@@ -46,7 +46,7 @@ Nous avons réussi à automatiser :
 
 Cependant, malgrè de nombreux essais nous n'avons pas réussi à mettre en place l'automatisation de la comparaison entre l'état attendu et l'état résultant. En effet, bien qu'il existe des librairies de comparaison d'image, il y a quasiment systématiquement un offset de quelques pixels entre la capture résultante et celle attendue ce qui rend la comparaison pixel à pixel impossible.
 
-##Objectifs validées du projet :
+##Objectifs validés du projet :
 
 Nous avons remplit une majorité des objectifs du projet, cependant certains aspects peuvent être améliorés :
 	- Par exemple, notre UIanalyzer ne parcours pas les WidgetMiniToolBar, ce qui nuit à la portabilité de notre programme test ou bien à la complétude de nos tests.
