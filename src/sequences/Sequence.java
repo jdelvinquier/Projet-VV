@@ -60,6 +60,7 @@ public class Sequence {
 		System.out.println(fin);
 		PrintWriter out = new PrintWriter("states/"+this.name+".txt");
 		out.println(fin);
+		out.close();
 	}
 	
 	public ArrayList<AbstractButton> getList(){
