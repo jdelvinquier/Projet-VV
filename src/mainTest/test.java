@@ -21,9 +21,10 @@ public class test {
 		//Create a robot to execute the actions sequences
 		ActionPerformer p = new ActionPerformer();
 		//Create a new action sequence class, specify name & a max size
-		Sequence s = new Sequence("Seq20",20);
+		Sequence s = new Sequence("SeqDemo",15);
 		//Generate a sequence with X Undo & Y Redo at the end, fill the rest with random actions
-		s.buildNew(4,2);
+		//set boolean=true if 1920*1080, else set false
+		s.buildNew(3,2,true);
 		//Execute all  the actions and capture .png at each important step to verify
 		p.executeSequence(s);
 		s.printSeq();

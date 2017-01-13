@@ -1,5 +1,7 @@
 package sequences;
 
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -22,7 +24,7 @@ public class Sequence {
 		this.nUndo = 0;
 	}
 	
-	public void buildNew(int p_nUndo, int p_nRedo){
+	public void buildNew(int p_nUndo, int p_nRedo, boolean grilleOptOK){
 		actionSeq = new ArrayList<AbstractButton>();
 		if(p_nRedo > p_nUndo)
 			p_nRedo = p_nUndo;
@@ -31,8 +33,14 @@ public class Sequence {
 		int idx;
 		for(int i=0;i<this.seqLength-nUndo-nRedo;i++){
 			idx = rand.nextInt(ActionList.actions.size());
-			while(idx==16 || idx==18){
-				idx = rand.nextInt(ActionList.actions.size());
+			if(grilleOptOK){
+				while(idx==16 || idx==18){
+					idx = rand.nextInt(ActionList.actions.size());
+				}
+			}else{
+				while(idx==16 || idx==18 || idx==8 || idx==9 || idx==10){
+					idx = rand.nextInt(ActionList.actions.size());
+				}
 			}
 			actionSeq.add(ActionList.actions.get(idx));
 		}
@@ -42,7 +50,7 @@ public class Sequence {
 			actionSeq.add(ActionList.actions.get(16));
 	}
 	
-	public void printSeq(){
+	public void printSeq() throws FileNotFoundException{
 		String fin = name+" : ";
 		for(int i=0;i<this.seqLength;i++){
 			fin += actionSeq.get(i).getName();
@@ -50,6 +58,8 @@ public class Sequence {
 				fin += ", ";
 		}
 		System.out.println(fin);
+		PrintWriter out = new PrintWriter("states/"+this.name+".txt");
+		out.println(fin);
 	}
 	
 	public ArrayList<AbstractButton> getList(){

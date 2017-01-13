@@ -1,0 +1,1 @@
+SeqDemo : Grille, Triangle, Polygon, LineJ, Grille, Losange, Triangle, Bezier, GrilleStandard, Ellipse, Undo, Undo, Undo, Redo, Redo
