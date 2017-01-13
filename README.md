@@ -8,10 +8,11 @@ Test des fonctionnalités Undo-Redo
   
 ##Objectifs initiaux du projet :
 
-L'objectif principal de ce projet était d'automatiser au maximum le test d'une Interface Graphique Utilisateur pour une application codée en Java Swing. Plus précisément, la fonctionnalités Undo-Redo d'une de ces applications. C'est-à-dire qu'il fallait valider le fait que :
+L'objectif principal de ce projet était d'automatiser au maximum le test d'une Interface Graphique Utilisateur pour une application codée en Java Swing. Plus précisément, les fonctionnalités Undo-Redo d'une de ces applications. C'est-à-dire qu'il fallait valider le fait que :
 - Le Undo amène l'application dans l'état où elle se trouvait précédemment
 - Le Redo ramène l'application dans l'état où elle se trouvait avant le Undo
 
+Nous avons donc choisi LaTeXDraw.
 La première étape a été de découvrir manuellement tous les boutons qui interagissent avec les fonctionnalités Undo-Redo de LaTeXDraw mais également de quelle manière. En effet, la plupart des contrôles n'ont aucun effet sur le Undo-Redo, il a donc fallu dans un premier temps lister cet ensemble de boutons.
 
 ##Architecture du projet :
@@ -52,13 +53,13 @@ Comme on peut l'observer, bien que fonctionnellement le résultat est correct il
 
 ##Objectifs validés du projet :
 
-Nous avons remplit une majorité des objectifs du projet, cependant certains aspects peuvent être améliorés :
+Nous avons remplis une majorité des objectifs du projet, cependant certains aspects peuvent être améliorés :
 
-- Par exemple, notre UIanalyzer ne parcours pas les WidgetMiniToolBar, ce qui nuit à la portabilité de notre programme test ou bien à la complétude de nos tests.
+- Par exemple, notre UIanalyzer ne parcourt pas les WidgetMiniToolBar, ce qui nuit à la portabilité de notre programme test ou bien à la complétude de nos tests.
 - De la même manière, la génération des séquences de test est automatique mais elle pourrait comprendre plus d'options, actuellement on ne peut que préciser la longueur du test et le nombre de Undo-Redo successifs que l'on souhaite exécuter, à partir de ce générateur on peut facilement mettre en place de longues séquences totalement aléatoires mais toujours cohérentes en "appendant" plusieurs séquences successives généré par la classe actuelle.
-- Et comme précisé ci-dessus, nous souhaitions comparer les états via la comparaison des screenshots, mais nous nous sommes rendus compte de la difficulté de cette étape après coup
+- Et comme précisé ci-dessus, nous souhaitions comparer les états via la comparaison des screenshots, mais nous nous sommes rendus compte de la difficulté de cette étape après coups
 
-Par contre ces aspects du projets sont remplis :
+Par contre ces aspects du projets sont parfaitement fonctionnels :
 
 - Exploration de la JFrame et récupération de la position des composants voulus
 - Simulation des actions identique au comportement d'un utilisateur réel
@@ -70,4 +71,4 @@ Par contre ces aspects du projets sont remplis :
 
 Lors de ce projet, nous nous sommes rendus compte de la difficulté d'adapter le comportement de notre programme test à celui attendu par le programme testé. Chaque bouton peut demander un comportement de l'utilisateur différent, ce qui rend laborieux la programmation du Robot simulant les actions sur la GUI.
 De plus, il est difficile d'avoir un programme de test de GUI complet fonctionnant sur toutes les configurations possibles. En effet, comme dit précédemment si certaines actions du Robot sont codées en dur, alors ces actions deviennent incompatibles avec une résolution autre.
-Une autre difficulté dont nous nous sommes rendus compte est le fait que dans une GUI, certaines actions ne peuvent être déclenchées uniquement après une certaine séquence d'action, ce qui rend la génération automatique de test beaucoup plus complexe qu'un programme en ligne de commande par exemple.
+Une autre difficulté dont nous nous sommes rendus compte est le fait que dans une GUI, certaines actions ne peuvent être déclenchées uniquement après une certaine séquence d'actions, ce qui rend la génération automatique de tests beaucoup plus complexe qu'un programme en lignes de commande par exemple.
