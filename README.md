@@ -2,13 +2,13 @@
 Test des fonctionnalités Undo-Redo
 
 ##Pour que le programme de test fonctionne parfaitement :
-  - Modifier la variable projectPath dans la classe Launcher (chemin absolue vers le dossier projet)
+  - Modifier la variable projectPath dans la classe Launcher (chemin absolu vers le dossier projet)
   - Lancer une première fois le .jar de LaTeXDraw et le mettre en plein écran
   - Lancer le programme dans le package test, vous pouvez essayer différentes longueurs avec différents nombres de Undo/Redo
   
 ##Objectifs initiaux du projet :
 
-L'objectif principal de ce projet était d'automatiser au maximum le test d'une Interface Graphique Utilisateur pour une application codée en Java Swing. Plus précisément, les fonctionnalités Undo-Redo d'une de ces applications. C'est-à-dire qu'il fallait valider le fait que :
+L'objectif principal de ce projet était d'automatiser au maximum le test d'une Interface Graphique Utilisateur (GUI) pour une application codée en Java Swing. Plus précisément, les fonctionnalités Undo-Redo d'une de ces applications. C'est-à-dire qu'il fallait valider le fait que :
 - Le Undo amène l'application dans l'état où elle se trouvait précédemment
 - Le Redo ramène l'application dans l'état où elle se trouvait avant le Undo
 
