@@ -1,5 +1,5 @@
-# Projet-VV
-Undo/Redo functionnality test
+# Projet-Validation & Vérification
+Test des fonctionnalités Undo-Redo
 
 ##Pour que le programme de test fonctionne parfaitement :
   - Il faut être en résolution 1920*1080 sur Windows 7
