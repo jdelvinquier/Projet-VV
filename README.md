@@ -45,7 +45,14 @@ Nous avons réussi à automatiser :
 - L'exécution des séquences de test sur le GUI
 - La capture des états de l'application aux bons moments
 
-Cependant, malgrè de nombreux essais nous n'avons pas réussi à mettre en place l'automatisation de la comparaison entre l'état attendu et l'état résultant. En effet, bien qu'il existe des librairies de comparaison d'image, il y a quasiment systématiquement un offset de quelques pixels entre la capture résultante et celle attendue ce qui rend la comparaison pixel à pixel impossible.
+Cependant, malgrè de nombreux essais nous n'avons pas réussi à mettre en place l'automatisation de la comparaison entre l'état attendu et l'état résultant. En effet, bien qu'il existe des librairies de comparaison d'image, il y a quasiment systématiquement un offset de quelques pixels entre la capture résultante et celle attendue ce qui rend la comparaison pixel à pixel impossible :
+
+Exemple d'une capture d'un état attendu
+![alt tag](https://github.com/jdelvinquier/Projet-VV/blob/master/img_readme/1.jpg)
+Exemple d'un état résultant après le Undo
+![alt tag](https://github.com/jdelvinquier/Projet-VV/blob/master/img_readme/2.jpg)
+
+Comme on peut l'observer, bien que fonctionnellement le résultat est correct il y a un léger offset de pixel entre ces 2 états ce qui rend toute comparaison automatique quasiment impossible.
 
 ##Objectifs validés du projet :
 
