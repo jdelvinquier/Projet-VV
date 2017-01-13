@@ -11,6 +11,7 @@ import sequences.Sequence;
 
 public class test {
 	public static void main(String[] args) throws IOException, AWTException, InterruptedException{
+		boolean windows7_1920_1080 = false;
 		//Initialize class containing all possible actions
 		ActionList alist = new ActionList();
 		//Filling the list with positions of components
@@ -24,7 +25,7 @@ public class test {
 		Sequence s = new Sequence("SeqDemo",15);
 		//Generate a sequence with X Undo & Y Redo at the end, fill the rest with random actions
 		//set boolean=true if 1920*1080, else set false
-		s.buildNew(3,2,true);
+		s.buildNew(3,2,windows7_1920_1080);
 		//Execute all  the actions and capture .png at each important step to verify
 		p.executeSequence(s);
 		s.printSeq();
